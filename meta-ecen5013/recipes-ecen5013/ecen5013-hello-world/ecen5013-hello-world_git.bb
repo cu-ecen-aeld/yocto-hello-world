@@ -12,14 +12,12 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-SRC_URI = "git://github.com/cu-ecen-5013/ecen5013-hello-world.git;protocol=https \
+SRC_URI = "git://github.com/cu-ecen-5013/ecen5013-hello-world.git;protocol=https;nobranch=1 \
            "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
 SRCREV = "452e6e18d1323df20a309e1e55300063d893777e"
-
-S = "${WORKDIR}/git"
 
 FILES:${PN} += "${bindir}/hello-ecen5013"
 
