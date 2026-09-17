@@ -1,6 +1,9 @@
 #!/bin/bash
-# Kicks off the build for the ecen5013 custom image
+
 set -e
-pushd `dirname $0`
-. ./build_prep.sh
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+source "${SCRIPT_DIR}/bitbake-builds/yocto-hello-world-wrynose-ecen5013/build/init-build-env"
+
 bitbake core-image-ecen5013

@@ -1,0 +1,48 @@
+{
+    "version": "1.0",
+    "description": "ECEN 5013 Yocto Hello World - Wrynose",
+    "sources": {
+        "bitbake": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/bitbake",
+                "branch": "2.18",
+                "rev": "2.18"
+            }
+        },
+        "openembedded-core": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/openembedded-core",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "meta-yocto": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-yocto",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        }
+    },
+    "bitbake-setup": {
+        "configurations": [
+            {
+                "name": "ecen5013",
+                "description": "ECEN 5013 Wrynose build",
+                "setup-dir-name": "yocto-hello-world-wrynose",
+                "bb-layers": [
+                    "openembedded-core/meta",
+                    "meta-yocto/meta-poky",
+                    "meta-yocto/meta-yocto-bsp"
+                ],
+                "bb-layers-file-relative": [
+                    "../meta-ecen5013"
+                ],
+                "oe-fragments": [
+                    "machine/qemux86-64",
+                    "distro/poky"
+                ]
+            }
+        ]
+    }
+}
