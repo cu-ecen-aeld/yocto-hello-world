@@ -13,6 +13,14 @@ jobs:
             with:
               clean: false
               submodules: 'recursive'
+            env:
+              # This forces Git to accept the parent repository and all submodules as safe,
+              # overriding the temporary HOME sandbox behavior.
+              GIT_CONFIG_COUNT: 2
+              GIT_CONFIG_KEY_0: safe.directory
+              GIT_CONFIG_VALUE_0: '${{ github.workspace }}'
+              GIT_CONFIG_KEY_1: safe.directory
+              GIT_CONFIG_VALUE_1: '${{ github.workspace }}/*'
           - name: Run build
             timeout-minutes: 600
             run: |
