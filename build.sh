@@ -4,11 +4,11 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-INIT_ENV_SCRIPT=${SCRIPT_DIR}/bitbake-builds/yocto-hello-world-wrynose-ecen5013/build/init-build-env
+INIT_ENV_SCRIPT=${SCRIPT_DIR}/bitbake-builds/yocto-hello-world-wrynose/build/init-build-env
 if [ ! -e ${INIT_ENV_SCRIPT} ]; then
     ${SCRIPT_DIR}/setup.sh
 fi
 
-source "${SCRIPT_DIR}/bitbake-builds/yocto-hello-world-wrynose-ecen5013/build/init-build-env"
+source "${SCRIPT_DIR}/bitbake-builds/yocto-hello-world-wrynose/build/init-build-env"
 
 bitbake core-image-ecen5013
